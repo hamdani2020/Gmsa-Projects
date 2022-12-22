@@ -5,8 +5,11 @@ import random
 
 # Hadith Models
 def index(request):
-    hadith = Hadith.objects.all()[1:7]
-    daily = random.choice(Hadith.objects.all())
+    hadith = Hadith.objects.all()[0:7]
+    try:
+        daily = random.choice(Hadith.objects.all())
+    except:
+        daily = ''
     context = { "hadith":hadith,
                 "daily":daily,
                 }
